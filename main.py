@@ -5,8 +5,7 @@ import os
 from os.path import join
 import shutil
 
-mypath = 'D:/eclipse-workspace/Winc/files'
-cachepath = 'D:/eclipse-workspace/Winc/files/cache'
+cachepath = os.path.join(os.getcwd(), 'cache')
 
 def clean_cache():
     if os.path.exists(cachepath):
@@ -28,7 +27,6 @@ def find_password(cached= cached_files()):
         lines = textfile.readlines()
         for line in lines:
             if line.find("password") != -1:
-                # briljante methode om trailing newline weg te halen:
                 return line.split(" ", 1)[1].rstrip('\n')
         textfile.close()
 
