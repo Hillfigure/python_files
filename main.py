@@ -29,3 +29,5 @@ def find_password(cached= cached_files()):
             if line.find("password") != -1:
                 return line.split(" ", 1)[1].rstrip('\n')
         textfile.close()
+
+print(find_password())
